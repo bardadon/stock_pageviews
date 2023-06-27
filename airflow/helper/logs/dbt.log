@@ -1,0 +1,78 @@
+[0m17:51:46.871064 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3025ccdc90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3025ccde90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3025ccdf90>]}
+
+
+============================== 17:51:46.876116 | afd06f59-b717-48d3-8fd9-cac460ea5740 ==============================
+[0m17:51:46.876116 [info ] [MainThread]: Running with dbt=1.5.2
+[0m17:51:46.876808 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/airflow/.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m17:51:46.877407 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': PosixPath('/home/airflow/.dbt')}
+[0m17:51:46.877850 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m17:51:46.879642 [debug] [MainThread]: Starter project path: /home/airflow/.local/lib/python3.7/site-packages/dbt/include/starter_project
+[0m17:52:26.921927 [info ] [MainThread]: Profile dbt_pageviews written to /home/airflow/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:52:26.922840 [info ] [MainThread]: 
+Your new dbt project "dbt_pageviews" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:52:26.924123 [debug] [MainThread]: Command `dbt init` succeeded at 17:52:26.923886 after 40.06 seconds
+[0m17:52:26.924687 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3025ccdf10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3029e98fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3025c6dd10>]}
+[0m17:52:26.925253 [debug] [MainThread]: Flushing usage events
+[0m17:54:18.206697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8be4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8be8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8be690>]}
+
+
+============================== 17:54:18.212034 | f7f87692-3c3f-49f8-a2c3-5cf49a442f05 ==============================
+[0m17:54:18.212034 [info ] [MainThread]: Running with dbt=1.5.2
+[0m17:54:18.212711 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/home/airflow/.dbt', 'log_path': 'logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m17:54:18.213270 [info ] [MainThread]: dbt version: 1.5.2
+[0m17:54:18.213666 [info ] [MainThread]: python version: 3.7.15
+[0m17:54:18.214096 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m17:54:18.214644 [info ] [MainThread]: os info: Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-debian-11.5
+[0m17:54:18.215209 [info ] [MainThread]: Using profiles.yml file at /home/airflow/.dbt/profiles.yml
+[0m17:54:18.215753 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/helper/dbt_project.yml
+[0m17:54:18.216306 [info ] [MainThread]: Configuration:
+[0m17:54:18.855323 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m17:54:18.855898 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m17:54:18.856308 [info ] [MainThread]: Required dependencies:
+[0m17:54:18.856704 [debug] [MainThread]: Executing "git --help"
+[0m17:54:18.863830 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m17:54:18.865154 [info ] [MainThread]: Connection:
+[0m17:54:18.865962 [info ] [MainThread]:   method: service-account
+[0m17:54:18.866566 [info ] [MainThread]:   database: pageviews-390416
+[0m17:54:18.867113 [info ] [MainThread]:   schema: pageviews
+[0m17:54:18.867670 [info ] [MainThread]:   location: US
+[0m17:54:18.868233 [info ] [MainThread]:   priority: interactive
+[0m17:54:18.868800 [info ] [MainThread]:   timeout_seconds: 300
+[0m17:54:18.869359 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m17:54:18.869878 [info ] [MainThread]:   execution_project: pageviews-390416
+[0m17:54:18.870446 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m17:54:18.870980 [info ] [MainThread]:   job_retries: 1
+[0m17:54:18.871517 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m17:54:18.872014 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m17:54:18.872547 [info ] [MainThread]:   gcs_bucket: None
+[0m17:54:18.873531 [info ] [MainThread]: Registered adapter: bigquery=1.5.3
+[0m17:54:18.874418 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m17:54:18.874793 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:54:18.878648 [debug] [MainThread]: On debug: select 1 as id
+[0m17:54:20.392585 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=pageviews-390416&j=bq:US:1696dde5-d922-4c01-9e81-7c96a27e4ef9&page=queryresults
+[0m17:54:20.393092 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m17:54:20.393627 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m17:54:20.394115 [info ] [MainThread]: Could not load dbt_project.yml
+
+[0m17:54:20.394608 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m17:54:20.395647 [debug] [MainThread]: Command `dbt debug` failed at 17:54:20.395388 after 2.20 seconds
+[0m17:54:20.396535 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m17:54:20.397457 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8be850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8bef10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa57b8be650>]}
+[0m17:54:20.398572 [debug] [MainThread]: Flushing usage events

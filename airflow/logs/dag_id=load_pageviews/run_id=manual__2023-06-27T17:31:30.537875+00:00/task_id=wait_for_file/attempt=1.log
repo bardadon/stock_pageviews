@@ -1,0 +1,36 @@
+[2023-06-27T17:31:51.240+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.wait_for_file manual__2023-06-27T17:31:30.537875+00:00 [queued]>
+[2023-06-27T17:31:51.247+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.wait_for_file manual__2023-06-27T17:31:30.537875+00:00 [queued]>
+[2023-06-27T17:31:51.247+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T17:31:51.247+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-27T17:31:51.247+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T17:31:51.257+0000] {taskinstance.py:1304} INFO - Executing <Task(FileSensor): wait_for_file> on 2023-06-27 17:31:30.537875+00:00
+[2023-06-27T17:31:51.263+0000] {standard_task_runner.py:55} INFO - Started process 998 to run task
+[2023-06-27T17:31:51.265+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'wait_for_file', 'manual__2023-06-27T17:31:30.537875+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpcwgkz_j3']
+[2023-06-27T17:31:51.266+0000] {standard_task_runner.py:83} INFO - Job 7: Subtask wait_for_file
+[2023-06-27T17:31:51.308+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.wait_for_file manual__2023-06-27T17:31:30.537875+00:00 [running]> on host df36c5c3b1c7
+[2023-06-27T17:31:51.351+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=wait_for_file
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T17:31:30.537875+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T17:31:30.537875+00:00
+[2023-06-27T17:31:51.361+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/sensors/base.py", line 199, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/sensors/filesystem.py", line 61, in poke
+    hook = FSHook(self.fs_conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/filesystem.py", line 38, in __init__
+    conn = self.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 432, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `gz_file` isn't defined
+[2023-06-27T17:31:51.364+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=load_pageviews, task_id=wait_for_file, execution_date=20230627T173130, start_date=20230627T173151, end_date=20230627T173151
+[2023-06-27T17:31:51.372+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 7 for task wait_for_file (The conn_id `gz_file` isn't defined; 998)
+[2023-06-27T17:31:51.397+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-06-27T17:31:51.421+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
