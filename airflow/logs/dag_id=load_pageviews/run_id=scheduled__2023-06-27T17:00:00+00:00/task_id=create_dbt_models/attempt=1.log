@@ -1,0 +1,43 @@
+[2023-06-27T18:01:25.645+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.create_dbt_models scheduled__2023-06-27T17:00:00+00:00 [queued]>
+[2023-06-27T18:01:25.653+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.create_dbt_models scheduled__2023-06-27T17:00:00+00:00 [queued]>
+[2023-06-27T18:01:25.653+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T18:01:25.653+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-27T18:01:25.653+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T18:01:25.664+0000] {taskinstance.py:1304} INFO - Executing <Task(BashOperator): create_dbt_models> on 2023-06-27 17:00:00+00:00
+[2023-06-27T18:01:25.670+0000] {standard_task_runner.py:55} INFO - Started process 2247 to run task
+[2023-06-27T18:01:25.673+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'create_dbt_models', 'scheduled__2023-06-27T17:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpn3aogm67']
+[2023-06-27T18:01:25.673+0000] {standard_task_runner.py:83} INFO - Job 23: Subtask create_dbt_models
+[2023-06-27T18:01:25.715+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.create_dbt_models scheduled__2023-06-27T17:00:00+00:00 [running]> on host df36c5c3b1c7
+[2023-06-27T18:01:25.767+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=create_dbt_models
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T17:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-27T17:00:00+00:00
+[2023-06-27T18:01:25.769+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-27T18:01:25.769+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/helper/dbt_pageviews && dbt run']
+[2023-06-27T18:01:25.783+0000] {subprocess.py:86} INFO - Output:
+[2023-06-27T18:01:27.744+0000] {subprocess.py:93} INFO - [0m18:01:27  Running with dbt=1.5.2
+[2023-06-27T18:01:28.538+0000] {subprocess.py:93} INFO - [0m18:01:28  Registered adapter: bigquery=1.5.3
+[2023-06-27T18:01:28.581+0000] {subprocess.py:93} INFO - [0m18:01:28  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 357 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2023-06-27T18:01:28.583+0000] {subprocess.py:93} INFO - [0m18:01:28
+[2023-06-27T18:01:29.492+0000] {subprocess.py:93} INFO - [0m18:01:29  Concurrency: 1 threads (target='dev')
+[2023-06-27T18:01:29.493+0000] {subprocess.py:93} INFO - [0m18:01:29
+[2023-06-27T18:01:29.500+0000] {subprocess.py:93} INFO - [0m18:01:29  1 of 2 START sql table model pageviews.my_first_dbt_model ...................... [RUN]
+[2023-06-27T18:01:32.356+0000] {subprocess.py:93} INFO - [0m18:01:32  1 of 2 OK created sql table model pageviews.my_first_dbt_model ................. [[32mCREATE TABLE (2.0 rows, 0 processed)[0m in 2.86s]
+[2023-06-27T18:01:32.358+0000] {subprocess.py:93} INFO - [0m18:01:32  2 of 2 START sql view model pageviews.my_second_dbt_model ...................... [RUN]
+[2023-06-27T18:01:33.357+0000] {subprocess.py:93} INFO - [0m18:01:33  2 of 2 OK created sql view model pageviews.my_second_dbt_model ................. [[32mCREATE VIEW (0 processed)[0m in 1.00s]
+[2023-06-27T18:01:33.410+0000] {subprocess.py:93} INFO - [0m18:01:33
+[2023-06-27T18:01:33.411+0000] {subprocess.py:93} INFO - [0m18:01:33  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 4.83 seconds (4.83s).
+[2023-06-27T18:01:33.420+0000] {subprocess.py:93} INFO - [0m18:01:33
+[2023-06-27T18:01:33.421+0000] {subprocess.py:93} INFO - [0m18:01:33  [32mCompleted successfully[0m
+[2023-06-27T18:01:33.422+0000] {subprocess.py:93} INFO - [0m18:01:33
+[2023-06-27T18:01:33.422+0000] {subprocess.py:93} INFO - [0m18:01:33  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2023-06-27T18:01:34.223+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-27T18:01:34.244+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=load_pageviews, task_id=create_dbt_models, execution_date=20230627T170000, start_date=20230627T180125, end_date=20230627T180134
+[2023-06-27T18:01:34.266+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-27T18:01:34.281+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

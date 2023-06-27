@@ -1,0 +1,51 @@
+[2023-06-27T18:07:00.264+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.send_email_notification manual__2023-06-27T18:05:25.115111+00:00 [queued]>
+[2023-06-27T18:07:00.274+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.send_email_notification manual__2023-06-27T18:05:25.115111+00:00 [queued]>
+[2023-06-27T18:07:00.274+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T18:07:00.274+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-27T18:07:00.275+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-27T18:07:00.289+0000] {taskinstance.py:1304} INFO - Executing <Task(EmailOperator): send_email_notification> on 2023-06-27 18:05:25.115111+00:00
+[2023-06-27T18:07:00.295+0000] {standard_task_runner.py:55} INFO - Started process 2551 to run task
+[2023-06-27T18:07:00.298+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'send_email_notification', 'manual__2023-06-27T18:05:25.115111+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpd9fvokix']
+[2023-06-27T18:07:00.299+0000] {standard_task_runner.py:83} INFO - Job 33: Subtask send_email_notification
+[2023-06-27T18:07:00.347+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.send_email_notification manual__2023-06-27T18:05:25.115111+00:00 [running]> on host df36c5c3b1c7
+[2023-06-27T18:07:00.407+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=send_email_notification
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-27T18:05:25.115111+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-27T18:05:25.115111+00:00
+[2023-06-27T18:07:00.415+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:120: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2023-06-27T18:07:00.415+0000] {configuration.py:635} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-06-27T18:07:00.415+0000] {email.py:229} INFO - Email alerting: attempt 1
+[2023-06-27T18:07:00.416+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/email.py", line 87, in execute
+    custom_headers=self.custom_headers,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 72, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 120, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 231, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 265, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2023-06-27T18:07:00.422+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=load_pageviews, task_id=send_email_notification, execution_date=20230627T180525, start_date=20230627T180700, end_date=20230627T180700
+[2023-06-27T18:07:00.432+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 33 for task send_email_notification ([Errno 99] Cannot assign requested address; 2551)
+[2023-06-27T18:07:00.469+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-06-27T18:07:00.483+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -9,5 +9,5 @@ dbt_pageviews: # this needs to match the profile in your dbt_project.yml file
       dataset: pageviews # Replace this with dbt_your_name, e.g. dbt_bilbo
       threads: 1
       timeout_seconds: 300
-      location: US
+      location: us-east1
       priority: interactive
