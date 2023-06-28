@@ -1,0 +1,24 @@
+[2023-06-28T15:00:37.833+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.fetch_pageviews scheduled__2023-06-28T14:00:00+00:00 [queued]>
+[2023-06-28T15:00:37.842+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.fetch_pageviews scheduled__2023-06-28T14:00:00+00:00 [queued]>
+[2023-06-28T15:00:37.842+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T15:00:37.842+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T15:00:37.843+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T15:00:37.855+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): fetch_pageviews> on 2023-06-28 14:00:00+00:00
+[2023-06-28T15:00:37.863+0000] {standard_task_runner.py:55} INFO - Started process 8496 to run task
+[2023-06-28T15:00:37.865+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'fetch_pageviews', 'scheduled__2023-06-28T14:00:00+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmp5s7eawgl']
+[2023-06-28T15:00:37.866+0000] {standard_task_runner.py:83} INFO - Job 126: Subtask fetch_pageviews
+[2023-06-28T15:00:37.914+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.fetch_pageviews scheduled__2023-06-28T14:00:00+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T15:00:37.968+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=fetch_pageviews
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T14:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T14:00:00+00:00
+[2023-06-28T15:00:40.843+0000] {logging_mixin.py:137} INFO - {'Facebook': '981', 'Google': '855', 'Microsoft': '165', 'Amazon': '25', 'Apple': '74'}
+[2023-06-28T15:00:41.559+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-06-28T15:00:41.574+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=load_pageviews, task_id=fetch_pageviews, execution_date=20230628T140000, start_date=20230628T150037, end_date=20230628T150041
+[2023-06-28T15:00:41.608+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-28T15:00:41.634+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

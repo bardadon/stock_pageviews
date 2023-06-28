@@ -1,0 +1,25 @@
+[2023-06-28T17:00:16.689+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.extract_data scheduled__2023-06-28T16:00:00+00:00 [queued]>
+[2023-06-28T17:00:16.697+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.extract_data scheduled__2023-06-28T16:00:00+00:00 [queued]>
+[2023-06-28T17:00:16.697+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T17:00:16.697+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T17:00:16.697+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T17:00:16.709+0000] {taskinstance.py:1304} INFO - Executing <Task(BashOperator): extract_data> on 2023-06-28 16:00:00+00:00
+[2023-06-28T17:00:16.716+0000] {standard_task_runner.py:55} INFO - Started process 13577 to run task
+[2023-06-28T17:00:16.720+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'extract_data', 'scheduled__2023-06-28T16:00:00+00:00', '--job-id', '139', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmplstk9ec8']
+[2023-06-28T17:00:16.720+0000] {standard_task_runner.py:83} INFO - Job 139: Subtask extract_data
+[2023-06-28T17:00:16.846+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.extract_data scheduled__2023-06-28T16:00:00+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T17:00:16.911+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=extract_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T16:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T16:00:00+00:00
+[2023-06-28T17:00:16.912+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-28T17:00:16.913+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'curl -o /tmp/wikipageviews.gz https://dumps.wikimedia.org/other/pageviews/2023/2023-06/pageviews-20230628-140000.gz']
+[2023-06-28T17:00:16.927+0000] {subprocess.py:86} INFO - Output:
+[2023-06-28T17:00:16.938+0000] {subprocess.py:93} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2023-06-28T17:00:16.938+0000] {subprocess.py:93} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
