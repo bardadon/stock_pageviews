@@ -1,0 +1,30 @@
+[2023-06-28T06:02:30.553+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.extract_data manual__2023-06-28T06:02:22.812930+00:00 [queued]>
+[2023-06-28T06:02:30.560+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.extract_data manual__2023-06-28T06:02:22.812930+00:00 [queued]>
+[2023-06-28T06:02:30.560+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T06:02:30.560+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T06:02:30.560+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T06:02:30.569+0000] {taskinstance.py:1304} INFO - Executing <Task(BashOperator): extract_data> on 2023-06-28 06:02:22.812930+00:00
+[2023-06-28T06:02:30.574+0000] {standard_task_runner.py:55} INFO - Started process 283 to run task
+[2023-06-28T06:02:30.576+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'extract_data', 'manual__2023-06-28T06:02:22.812930+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpmjb2s452']
+[2023-06-28T06:02:30.577+0000] {standard_task_runner.py:83} INFO - Job 70: Subtask extract_data
+[2023-06-28T06:02:30.619+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.extract_data manual__2023-06-28T06:02:22.812930+00:00 [running]> on host 53ef9e17488f
+[2023-06-28T06:02:30.668+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=extract_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T06:02:22.812930+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-28T06:02:22.812930+00:00
+[2023-06-28T06:02:30.669+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-06-28T06:02:30.670+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'curl -o /tmp/wikipageviews.gz https://dumps.wikimedia.org/other/pageviews/2023/2023-06/pageviews-20230628-040000.gz']
+[2023-06-28T06:02:30.679+0000] {subprocess.py:86} INFO - Output:
+[2023-06-28T06:02:30.685+0000] {subprocess.py:93} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2023-06-28T06:02:30.685+0000] {subprocess.py:93} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2023-06-28T06:02:44.975+0000] {subprocess.py:93} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 55.0M    0  111k    0     0   127k      0  0:07:21 --:--:--  0:07:21  127k  7 55.0M    7 4287k    0     0  2260k      0  0:00:24  0:00:01  0:00:23 2259k 15 55.0M   15 8831k    0     0  3062k      0  0:00:18  0:00:02  0:00:16 3061k 23 55.0M   23 12.8M    0     0  3406k      0  0:00:16  0:00:03  0:00:13 3405k 30 55.0M   30 17.0M    0     0  3573k      0  0:00:15  0:00:04  0:00:11 3572k 38 55.0M   38 21.0M    0     0  3670k      0  0:00:15  0:00:05  0:00:10 4288k 45 55.0M   45 25.2M    0     0  3718k      0  0:00:15  0:00:06  0:00:09 4266k 52 55.0M   52 29.1M    0     0  3788k      0  0:00:14  0:00:07  0:00:07 4207k 60 55.0M   60 33.3M    0     0  3844k      0  0:00:14  0:00:08  0:00:06 4184k 68 55.0M   68 37.4M    0     0  3888k      0  0:00:14  0:00:09  0:00:05 4196k 75 55.0M   75 41.3M    0     0  3894k      0  0:00:14  0:00:10  0:00:04 4158k 82 55.0M   82 45.5M    0     0  3928k      0  0:00:14  0:00:11  0:00:03 4223k 89 55.0M   89 49.1M    0     0  3906k      0  0:00:14  0:00:12  0:00:02 4093k 96 55.0M   96 53.3M    0     0  3939k      0  0:00:14  0:00:13  0:00:01 4108k100 55.0M  100 55.0M    0     0  3948k      0  0:00:14  0:00:14 --:--:-- 4080k
+[2023-06-28T06:02:44.981+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-06-28T06:02:45.000+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=load_pageviews, task_id=extract_data, execution_date=20230628T060222, start_date=20230628T060230, end_date=20230628T060245
+[2023-06-28T06:02:45.039+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-28T06:02:45.062+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

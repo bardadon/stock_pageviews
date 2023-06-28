@@ -64,6 +64,7 @@ cd airflow/dags
 
 mkdir data
 mkdir helper
+mkdir tests
 
 # Grant user airflow permissions to all airflow folders
 sudo chown -R 50000:50000 $(pwd)
@@ -80,3 +81,6 @@ docker-compose up -d
 
 # Generate a requirements.txt file
 pip freeze > /opt/airflow/dags/requirements.txt
+
+# copy the airflow.cfg file from scheduler to the airflow folder
+docker cp $(docker ps -aqf "name=airflow-scheduler"):/opt/airflow/airflow.cfg $(pwd)

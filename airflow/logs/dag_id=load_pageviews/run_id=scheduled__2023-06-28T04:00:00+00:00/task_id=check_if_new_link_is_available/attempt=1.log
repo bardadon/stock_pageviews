@@ -1,0 +1,23 @@
+[2023-06-28T05:38:34.188+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T04:00:00+00:00 [queued]>
+[2023-06-28T05:38:34.194+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T04:00:00+00:00 [queued]>
+[2023-06-28T05:38:34.195+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T05:38:34.195+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T05:38:34.195+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T05:38:34.204+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): check_if_new_link_is_available> on 2023-06-28 04:00:00+00:00
+[2023-06-28T05:38:34.209+0000] {standard_task_runner.py:55} INFO - Started process 62 to run task
+[2023-06-28T05:38:34.212+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'check_if_new_link_is_available', 'scheduled__2023-06-28T04:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpkwd0dkxm']
+[2023-06-28T05:38:34.212+0000] {standard_task_runner.py:83} INFO - Job 40: Subtask check_if_new_link_is_available
+[2023-06-28T05:38:34.258+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T04:00:00+00:00 [running]> on host b7f23ecf7992
+[2023-06-28T05:38:34.307+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=check_if_new_link_is_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T04:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T04:00:00+00:00
+[2023-06-28T05:38:37.902+0000] {python.py:177} INFO - Done. Returned value was: True
+[2023-06-28T05:38:37.920+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=load_pageviews, task_id=check_if_new_link_is_available, execution_date=20230628T040000, start_date=20230628T053834, end_date=20230628T053837
+[2023-06-28T05:38:37.963+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-28T05:38:37.984+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

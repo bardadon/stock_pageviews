@@ -25,7 +25,6 @@ sys.path.append(AIRFLOW_HOME)
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/opt/airflow/config/ServiceKey_GoogleCloud.json'
 
 
-
 def get_latest_url(base_url = 'https://dumps.wikimedia.org/other/pageviews/'):
     '''
     Function: get_latest_url
@@ -136,7 +135,7 @@ def connect_to_bigquery():
     conn = bigquery.Client()
     return conn
 
-def grab_table_id(conn, table_name):
+def grab_table_id(conn, table_name, service_key_path='/opt/airflow/config/ServiceKey_GoogleCloud.json'):
     '''
     Function: grab_table_id
     Summary: Grab table id
@@ -148,7 +147,7 @@ def grab_table_id(conn, table_name):
     ProjectName.Datasetname.Tablename
     '''
     # Grab project name from service account json file
-    project = conn.from_service_account_json(f"/opt/airflow/config/ServiceKey_GoogleCloud.json").project
+    project = conn.from_service_account_json(service_key_path).project
     
     # Generate and return table id
     dataset = conn.get_dataset('pageviews')
@@ -266,14 +265,15 @@ def is_new_data_is_available():
     latest_link_from_wikipedia = latest_link_from_wikipedia.replace("pageviews-", "")[:-3]
     latest_link_from_wikipedia = pd.to_datetime(latest_link_from_wikipedia, format='%Y%m%d-%H%M%S')
 
+    print(f"Latest link from Wikipedia: {latest_link_from_wikipedia}")
+    print(f"Latest link from BigQuery: {latest_link_from_bigquery}")
+
     # Compare dates
     if latest_link_from_wikipedia > latest_link_from_bigquery:
         return True
     else:
         print("Data is up to date.")
-        print(f"Latest link from Wikipedia: {latest_link_from_wikipedia}")
-        print(f"Latest link from BigQuery: {latest_link_from_bigquery}")
-        return False
+        raise AirflowException("Data is up to date.")
 
 def grab_current_rates():
     '''
