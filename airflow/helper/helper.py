@@ -11,7 +11,8 @@ import pandas as pd
 import json
 from yahoo_fin import stock_info as si
 from airflow.exceptions import AirflowException
-
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
 
 # Load env variables from .env
 load_dotenv()
@@ -24,6 +25,9 @@ sys.path.append(AIRFLOW_HOME)
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/opt/airflow/config/ServiceKey_GoogleCloud.json'
 
+####                                        ####
+#### Helper Functions For load_pageviews.py ####
+####                                        ####
 
 def get_latest_url(base_url = 'https://dumps.wikimedia.org/other/pageviews/'):
     '''
@@ -230,6 +234,7 @@ def grab_latest_link_from_bigquery():
         None
     Returns:
         latest_link (str): Latest link
+    Format of latest link: 2023-06-28T04:00:00.000000000
     '''
     conn = connect_to_bigquery()
     table_id = grab_table_id(conn, table_name='pageviews')
@@ -344,23 +349,194 @@ def load_current_rates():
     print("Loaded {} rows into {}.".format(job.output_rows, table_id))
 
 
-def extract_from_bigquery():
+####                                        ####
+#### Helper Functions For predict_rates.py ####
+####                                        ####
+
+def pre_processing() -> pd.DataFrame:
+    '''
+    Function: pre_processing
+    Summary:
+        - Connect to bigquery and grab ALL data
+        - seperate date column
+    Args:
+        None
+    Returns:
+        pageviews_df(dataframe)
+    '''
+    # Generate dataframe with ALL data from bigquery
     conn = connect_to_bigquery()
-    table_id = grab_table_id()
-    # extract rates/pageview view from bigquery
+    query = "SELECT * FROM pageviews-390416.pageviews.pageviews_ranks"
+    pageviews_df = conn.query(query).result().to_dataframe()
+    
+    # Seperate and drop date column
+    pageviews_df['year'] = pd.to_datetime(pageviews_df['date']).dt.year
+    pageviews_df['month'] = pd.to_datetime(pageviews_df['date']).dt.month
+    pageviews_df['day'] = pd.to_datetime(pageviews_df['date']).dt.day
+    pageviews_df['hour'] = pd.to_datetime(pageviews_df['date']).dt.hour
+    pageviews_df['minute'] = pd.to_datetime(pageviews_df['date']).dt.minute
+    pageviews_df['second'] = pd.to_datetime(pageviews_df['date']).dt.second
+    pageviews_df = pageviews_df.drop(['date'], axis=1)
+
+    return pageviews_df
+
+def train_test_samples(x, y, test_size = 0.2):
+    number_of_test_rows = int(len(x) * test_size)
+
+    x_train = x.iloc[number_of_test_rows:,:].values
+    x_test = x.iloc[:number_of_test_rows, :].values
+
+    y_train = y[number_of_test_rows:].values
+    y_test = y[:number_of_test_rows].values
+    
+    return x_train, y_train, x_test, y_test
+
+def generate_x_y(df, company):
+    company_df = df[df.company == company]
+    x = company_df.drop(['rate' ,'company'], axis = 1)
+    y = company_df.loc[:, 'rate']
+    return x, y
+
+def train_model(df, company):
+    '''
+    Function: train_model
+    Summary:
+        - Create train and test data from ALL data
+        - Train and test model
+    Args:
+        df - dataframe with ALL data
+        company - name of assert
+    Returns:
+        model(RanomForestRegressor model)
+    '''
+    # Create train and test data for each company(80% train, 20% test)
+    x, y = generate_x_y(df, company)
+    x_train, y_train, x_test, y_test = train_test_samples(x, y)
+
+    # Train a RandomForest model
+    model = RandomForestRegressor(n_estimators=50, random_state = 365)
+    model.fit(x_train, y_train)
+
+    # Print score
+    print(f"Model R^2 Score is: {model.score(x_test, y_test)}")
+
+    return model    
+
+def generate_new_data(company, date:pd.DatetimeIndex, pageviews:int) -> pd.DataFrame:
+    '''
+    Function: generate_new_data
+    Summary:
+        - Generate a dataframe with the views from the last hour
+        - dataframe will have exactly the same format as the train dataframe
+        - dataframe date will be one hour after the latest date in bigquery
+    Args:
+        company - name of assert
+        date - latest date from bigquery
+        pageviews - latest views from bigquery
+    Returns:
+        new_data_df(dataframe) 
+    '''
+    new_data_df = pd.DataFrame()
+    date = pd.to_datetime(date)
+
+    new_data_df['pageviews'] = [pageviews]
+    new_data_df['year'] = [date.year]
+    new_data_df['month'] = [date.month]
+    new_data_df['day'] = [date.day]
+    new_data_df['hour'] = [date.hour+1]
+    new_data_df['minute'] = [date.minute]
+    new_data_df['second'] = [date.second]
+    
+    return new_data_df
+
+def _predict_rates() -> pd.DataFrame:
+    '''
+    Function predict_rates()
+    Summary:
+        - Train model and predict new data for each company
+        - Generate a dataframe for all next hour predictions
+    Args:
+        None
+    Returns:
+        predictions_df(dataframe)
+    '''
+
+    # Generate dataframe with ALL data from bigquery
+    df = pre_processing()
+
+    # Create dataframe for predictions
+    predictions_df = pd.DataFrame()
+
+    # For each company in the list predict the next hour rate
+    for company in ['AMZN', 'GOOGL', 'META', 'MSFT', 'AAPL']:
+        company_df = df[df["company"] == company]
+        
+        # Get the latest date from bigquery
+        date = grab_latest_link_from_bigquery()
+
+        # generate new data for the next hour
+        new_data = generate_new_data(company, date, company_df.views.values[-1])
+        print(new_data)
+
+        # Train model and predict new data
+        model = train_model(company_df, company)
+        prediction = model.predict(new_data)
+        print(prediction)
+
+        # Add prediction to dataframe
+        predictions_df[company] = prediction
+
+    # Export to csv
+    predictions_df.to_csv('/tmp/predictions.csv', index=False)
+
+def _generate_predictions_view():
+    '''
+    Function: generate_predictions_view
+    Summary:
+        - Generate a view with the predictions for the next hour
+    Args:
+        predictions_df(dataframe)
+    Returns:
+        None
+    '''
+    predictions_df = pd.read_csv('/tmp/predictions.csv')
+
+    # Connect to bigquery
+    conn = connect_to_bigquery()
+
+    # Create dataframe for the view
+    predictions_view_df = pd.DataFrame()
+    predictions_view_df['current_AMZN'] = si.get_live_price("AMZN")
+    predictions_view_df['predicted_AMZN'] = predictions_df['AMZN']
+    predictions_view_df['current_GOOGL'] = si.get_live_price("GOOGL")
+    predictions_view_df['predicted_GOOGL'] = predictions_df['GOOGL']
+    predictions_view_df['current_META'] = si.get_live_price("META")
+    predictions_view_df['predicted_META'] = predictions_df['META']
+    predictions_view_df['current_MSFT'] = si.get_live_price("MSFT")
+    predictions_view_df['predicted_MSFT'] = predictions_df['MSFT']
+    predictions_view_df['current_AAPL'] = si.get_live_price("AAPL")
+    predictions_view_df['predicted_AAPL'] = predictions_df['AAPL']
+    predictions_view_df['date'] = pd.to_datetime(grab_latest_link_from_bigquery())
+
+    # Create view
+    table_id = grab_table_id(conn=conn, service_key_path="/opt/airflow/config/ServiceKey_GoogleCloud.json", table_name="predictions")
+    table = conn.get_table(table_id)
+    conn.delete_table(table_id)
+    job = conn.load_table_from_dataframe(predictions_view_df, table_id)
+    job.result()
+
+    print("Loaded {} rows into {}.".format(job.output_rows, table_id))
 
 
 
 def main():
-    #latest_url = get_latest_url()
-    #latest_link = get_latest_link(latest_url)
-    #actual_command = generate_curl_command()
-    #results = grab_latest_link_from_bigquery()
-    #load_current_rates()
+    test_df = pre_processing()
+    x, y = generate_x_y(test_df, 'GOOGL')
+    x_train, y_train, x_test, y_test = train_test_samples(x, y)
 
-    print(is_new_data_is_available())
-
-
+    test_model = train_model(test_df, 'GOOGL')
+    predictions_df = _predict_rates()
+    #_generate_predictions_view(predictions_df)
 
 if __name__ == '__main__':
     main()

@@ -36,6 +36,10 @@ RUN echo "airflow ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # Grant permissions to the airflow user
 RUN chown -R airflow: ${AIRFLOW_HOME} 
 
+# Create test folder /opt/airflow/tests and airflow.cfg file in /opt/airflow/airflow.cfg
+RUN mkdir -p ${AIRFLOW_HOME}/tests
+RUN touch ${AIRFLOW_HOME}/airflow.cfg
+
 USER airflow
 
 RUN pip install --no-cache-dir apache-airflow-providers-google
