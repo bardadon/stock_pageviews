@@ -810,3 +810,17 @@
 [2023-06-28T06:39:17.373+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:39:17.372+0000] {dag.py:2676} INFO - Sync 1 DAGs
 [2023-06-28T06:39:17.390+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:39:17.390+0000] {dag.py:3427} INFO - Setting next_dagrun for load_pageviews to 2023-06-28T06:00:00+00:00, run_after=2023-06-28T07:00:00+00:00
 [2023-06-28T06:39:17.404+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/load_pageviews.py took 1.240 seconds
+[2023-06-28T06:39:48.352+0000] {processor.py:153} INFO - Started process (PID=2543) to work on /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:39:48.353+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/load_pageviews.py for tasks to queue
+[2023-06-28T06:39:48.353+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:39:48.353+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:39:49.482+0000] {processor.py:753} INFO - DAG(s) dict_keys(['load_pageviews']) retrieved from /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:39:49.531+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:39:49.531+0000] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-06-28T06:39:49.551+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:39:49.550+0000] {dag.py:3427} INFO - Setting next_dagrun for load_pageviews to 2023-06-28T06:00:00+00:00, run_after=2023-06-28T07:00:00+00:00
+[2023-06-28T06:39:49.566+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/load_pageviews.py took 1.216 seconds
+[2023-06-28T06:40:19.614+0000] {processor.py:153} INFO - Started process (PID=2591) to work on /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:40:19.616+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/load_pageviews.py for tasks to queue
+[2023-06-28T06:40:19.616+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:40:19.616+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:40:20.754+0000] {processor.py:753} INFO - DAG(s) dict_keys(['load_pageviews']) retrieved from /opt/airflow/dags/load_pageviews.py
+[2023-06-28T06:40:20.806+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:40:20.806+0000] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-06-28T06:40:20.822+0000] {logging_mixin.py:137} INFO - [2023-06-28T06:40:20.822+0000] {dag.py:3427} INFO - Setting next_dagrun for load_pageviews to 2023-06-28T06:00:00+00:00, run_after=2023-06-28T07:00:00+00:00
+[2023-06-28T06:40:20.837+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/load_pageviews.py took 1.225 seconds
