@@ -77,9 +77,11 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags:rw
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs:rw
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data:rw
+    - ${AIRFLOW_PROJ_DIR:-.}/tests:/opt/airflow/tests:rw
     - ${AIRFLOW_PROJ_DIR:-.}/helper:/opt/airflow/helper:rw
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config:rw
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins:rw
+    - ${AIRFLOW_PROJ_DIR:-.}/airflow.cfg:/opt/airflow/airflow.cfg:rw
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
