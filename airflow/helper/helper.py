@@ -260,10 +260,12 @@ def is_new_data_is_available():
     Returns:
         True or False (bool): True if new data is available, False otherwise
     '''
-    # Grab date from latest link from BigQuery
-    latest_link_from_bigquery = grab_latest_link_from_bigquery()
-    latest_link_from_bigquery = pd.to_datetime(latest_link_from_bigquery)
-    
+    # Grab date from latest link from BigQuery. If no data is available, return True
+    try:
+        latest_link_from_bigquery = grab_latest_link_from_bigquery()
+        latest_link_from_bigquery = pd.to_datetime(latest_link_from_bigquery)
+    except:
+        return True
 
     # Grab date from latest link from Wikipedia
     latest_link_from_wikipedia = get_latest_link()

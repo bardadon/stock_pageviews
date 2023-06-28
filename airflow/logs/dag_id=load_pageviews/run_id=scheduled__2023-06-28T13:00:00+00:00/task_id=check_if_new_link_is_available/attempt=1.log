@@ -1,0 +1,35 @@
+[2023-06-28T14:00:02.325+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T13:00:00+00:00 [queued]>
+[2023-06-28T14:00:02.332+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T13:00:00+00:00 [queued]>
+[2023-06-28T14:00:02.332+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T14:00:02.332+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T14:00:02.332+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T14:00:02.343+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): check_if_new_link_is_available> on 2023-06-28 13:00:00+00:00
+[2023-06-28T14:00:02.350+0000] {standard_task_runner.py:55} INFO - Started process 5718 to run task
+[2023-06-28T14:00:02.353+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'check_if_new_link_is_available', 'scheduled__2023-06-28T13:00:00+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmppt842juw']
+[2023-06-28T14:00:02.353+0000] {standard_task_runner.py:83} INFO - Job 117: Subtask check_if_new_link_is_available
+[2023-06-28T14:00:02.404+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.check_if_new_link_is_available scheduled__2023-06-28T13:00:00+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T14:00:02.464+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=check_if_new_link_is_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T13:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T13:00:00+00:00
+[2023-06-28T14:00:31.363+0000] {logging_mixin.py:137} INFO - Latest link from Wikipedia: 2023-06-28 11:00:00
+[2023-06-28T14:00:31.363+0000] {logging_mixin.py:137} INFO - Latest link from BigQuery: 2023-06-28 11:00:00
+[2023-06-28T14:00:31.363+0000] {logging_mixin.py:137} INFO - Data is up to date.
+[2023-06-28T14:00:31.370+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/helper/helper.py", line 281, in is_new_data_is_available
+    raise AirflowException("Data is up to date.")
+airflow.exceptions.AirflowException: Data is up to date.
+[2023-06-28T14:00:31.374+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=load_pageviews, task_id=check_if_new_link_is_available, execution_date=20230628T130000, start_date=20230628T140002, end_date=20230628T140031
+[2023-06-28T14:00:31.383+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 117 for task check_if_new_link_is_available (Data is up to date.; 5718)
+[2023-06-28T14:00:31.400+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-06-28T14:00:31.421+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

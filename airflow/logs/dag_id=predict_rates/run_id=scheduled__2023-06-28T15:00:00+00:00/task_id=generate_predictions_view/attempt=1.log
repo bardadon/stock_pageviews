@@ -1,0 +1,24 @@
+[2023-06-28T16:00:17.593+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.generate_predictions_view scheduled__2023-06-28T15:00:00+00:00 [queued]>
+[2023-06-28T16:00:17.601+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.generate_predictions_view scheduled__2023-06-28T15:00:00+00:00 [queued]>
+[2023-06-28T16:00:17.601+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T16:00:17.601+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T16:00:17.602+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T16:00:17.616+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): generate_predictions_view> on 2023-06-28 15:00:00+00:00
+[2023-06-28T16:00:17.625+0000] {standard_task_runner.py:55} INFO - Started process 11051 to run task
+[2023-06-28T16:00:17.629+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'predict_rates', 'generate_predictions_view', 'scheduled__2023-06-28T15:00:00+00:00', '--job-id', '136', '--raw', '--subdir', 'DAGS_FOLDER/predict_rates.py', '--cfg-path', '/tmp/tmpzrdlk87u']
+[2023-06-28T16:00:17.630+0000] {standard_task_runner.py:83} INFO - Job 136: Subtask generate_predictions_view
+[2023-06-28T16:00:17.684+0000] {task_command.py:389} INFO - Running <TaskInstance: predict_rates.generate_predictions_view scheduled__2023-06-28T15:00:00+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T16:00:17.744+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=predict_rates
+AIRFLOW_CTX_TASK_ID=generate_predictions_view
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T15:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T15:00:00+00:00
+[2023-06-28T16:00:27.753+0000] {logging_mixin.py:137} INFO - Loaded 1 rows into pageviews-390416.pageviews.predictions.
+[2023-06-28T16:00:27.754+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-06-28T16:00:27.762+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=predict_rates, task_id=generate_predictions_view, execution_date=20230628T150000, start_date=20230628T160017, end_date=20230628T160027
+[2023-06-28T16:00:27.815+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-28T16:00:27.830+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

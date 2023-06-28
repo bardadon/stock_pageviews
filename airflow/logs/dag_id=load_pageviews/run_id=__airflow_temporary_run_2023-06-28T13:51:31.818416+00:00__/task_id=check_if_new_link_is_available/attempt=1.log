@@ -1,0 +1,41 @@
+[2023-06-28T13:51:34.193+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available __airflow_temporary_run_2023-06-28T13:51:31.818416+00:00__ [queued]>
+[2023-06-28T13:51:34.200+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: load_pageviews.check_if_new_link_is_available __airflow_temporary_run_2023-06-28T13:51:31.818416+00:00__ [queued]>
+[2023-06-28T13:51:34.201+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T13:51:34.201+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T13:51:34.201+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T13:51:34.212+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): check_if_new_link_is_available> on 2023-06-28 00:00:00+00:00
+[2023-06-28T13:51:34.218+0000] {standard_task_runner.py:55} INFO - Started process 5330 to run task
+[2023-06-28T13:51:34.221+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'load_pageviews', 'check_if_new_link_is_available', '__***_temporary_run_2023-06-28T13:51:31.818416+00:00__', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/load_pageviews.py', '--cfg-path', '/tmp/tmpbjda9gul']
+[2023-06-28T13:51:34.222+0000] {standard_task_runner.py:83} INFO - Job 114: Subtask check_if_new_link_is_available
+[2023-06-28T13:51:34.275+0000] {task_command.py:389} INFO - Running <TaskInstance: load_pageviews.check_if_new_link_is_available __airflow_temporary_run_2023-06-28T13:51:31.818416+00:00__ [running]> on host 3e2e38946fac
+[2023-06-28T13:51:34.332+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=load_pageviews
+AIRFLOW_CTX_TASK_ID=check_if_new_link_is_available
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=__***_temporary_run_2023-06-28T13:51:31.818416+00:00__
+[2023-06-28T13:51:37.240+0000] {logging_mixin.py:137} INFO - Latest link from Wikipedia: 2023-06-28 11:00:00
+[2023-06-28T13:51:37.240+0000] {logging_mixin.py:137} INFO - Latest link from BigQuery: 2023-06-28 10:00:00
+[2023-06-28T13:51:37.240+0000] {python.py:177} INFO - Done. Returned value was: True
+[2023-06-28T13:51:37.246+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2301, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 211, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'load_pageviews' with ID '__***_temporary_run_2023-06-28T13:51:31.818416+00:00__'
+[2023-06-28T13:51:37.254+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=load_pageviews, task_id=check_if_new_link_is_available, execution_date=20230628T000000, start_date=20230628T135134, end_date=20230628T135137
+[2023-06-28T13:51:37.264+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 114 for task check_if_new_link_is_available ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(load_pageviews, check_if_new_link_is_available, __airflow_temporary_run_2023-06-28T13:51:31.818416+00:00__, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'check_if_new_link_is_available', 'dag_id': 'load_pageviews', 'run_id': '__airflow_temporary_run_2023-06-28T13:51:31.818416+00:00__', 'map_index': -1, 'start_date': datetime.datetime(2023, 6, 28, 13, 51, 34, 193836, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2023, 6, 28, 13, 51, 37, 253927, tzinfo=Timezone('UTC')), 'duration': 3}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 5330)
+[2023-06-28T13:51:37.280+0000] {local_task_job.py:159} INFO - Task exited with return code 1
