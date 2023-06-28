@@ -1,0 +1,34 @@
+[2023-06-28T12:45:48.459+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.generate_predictions_view manual__2023-06-28T12:45:31.325736+00:00 [queued]>
+[2023-06-28T12:45:48.469+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.generate_predictions_view manual__2023-06-28T12:45:31.325736+00:00 [queued]>
+[2023-06-28T12:45:48.469+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:45:48.470+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T12:45:48.470+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:45:48.485+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): generate_predictions_view> on 2023-06-28 12:45:31.325736+00:00
+[2023-06-28T12:45:48.492+0000] {standard_task_runner.py:55} INFO - Started process 1504 to run task
+[2023-06-28T12:45:48.496+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'predict_rates', 'generate_predictions_view', 'manual__2023-06-28T12:45:31.325736+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/predict_rates.py', '--cfg-path', '/tmp/tmplgwx22py']
+[2023-06-28T12:45:48.498+0000] {standard_task_runner.py:83} INFO - Job 99: Subtask generate_predictions_view
+[2023-06-28T12:45:48.553+0000] {task_command.py:389} INFO - Running <TaskInstance: predict_rates.generate_predictions_view manual__2023-06-28T12:45:31.325736+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T12:45:48.615+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=predict_rates
+AIRFLOW_CTX_TASK_ID=generate_predictions_view
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T12:45:31.325736+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-28T12:45:31.325736+00:00
+[2023-06-28T12:45:48.616+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/predict_rates.py", line 46, in generate_predictions_view
+    predictions_df = pd.DataFrame.from_dict(json.loads(json_df.to_json()))
+AttributeError: 'dict' object has no attribute 'to_json'
+[2023-06-28T12:45:48.623+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=predict_rates, task_id=generate_predictions_view, execution_date=20230628T124531, start_date=20230628T124548, end_date=20230628T124548
+[2023-06-28T12:45:48.632+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 99 for task generate_predictions_view ('dict' object has no attribute 'to_json'; 1504)
+[2023-06-28T12:45:48.666+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-06-28T12:45:48.682+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,76 @@
+[2023-06-28T12:57:05.964+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates __airflow_temporary_run_2023-06-28T12:57:04.760968+00:00__ [queued]>
+[2023-06-28T12:57:05.972+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates __airflow_temporary_run_2023-06-28T12:57:04.760968+00:00__ [queued]>
+[2023-06-28T12:57:05.972+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:57:05.972+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T12:57:05.972+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:57:05.985+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): predict_rates> on 2023-06-28 00:00:00+00:00
+[2023-06-28T12:57:05.991+0000] {standard_task_runner.py:55} INFO - Started process 2515 to run task
+[2023-06-28T12:57:05.994+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'predict_rates', 'predict_rates', '__***_temporary_run_2023-06-28T12:57:04.760968+00:00__', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/predict_rates.py', '--cfg-path', '/tmp/tmp6is_fcyj']
+[2023-06-28T12:57:05.995+0000] {standard_task_runner.py:83} INFO - Job 104: Subtask predict_rates
+[2023-06-28T12:57:06.048+0000] {task_command.py:389} INFO - Running <TaskInstance: predict_rates.predict_rates __airflow_temporary_run_2023-06-28T12:57:04.760968+00:00__ [running]> on host 3e2e38946fac
+[2023-06-28T12:57:06.153+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=predict_rates
+AIRFLOW_CTX_TASK_ID=predict_rates
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=__***_temporary_run_2023-06-28T12:57:04.760968+00:00__
+[2023-06-28T12:57:10.023+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         10  2023      6   28    11       0       0
+[2023-06-28T12:57:10.069+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:57:10.070+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:57:10.076+0000] {logging_mixin.py:137} INFO - [129.52136817]
+[2023-06-28T12:57:12.008+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        983  2023      6   28    11       0       0
+[2023-06-28T12:57:12.040+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:57:12.041+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:57:12.044+0000] {logging_mixin.py:137} INFO - [118.49782792]
+[2023-06-28T12:57:14.002+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0       1044  2023      6   28    11       0       0
+[2023-06-28T12:57:14.048+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:57:14.048+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:57:14.052+0000] {logging_mixin.py:137} INFO - [284.65173515]
+[2023-06-28T12:57:16.068+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        248  2023      6   28    11       0       0
+[2023-06-28T12:57:16.100+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:57:16.101+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:57:16.104+0000] {logging_mixin.py:137} INFO - [333.29036504]
+[2023-06-28T12:57:18.259+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         52  2023      6   28    11       0       0
+[2023-06-28T12:57:18.292+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:57:18.293+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:57:18.296+0000] {logging_mixin.py:137} INFO - [187.42613626]
+[2023-06-28T12:57:18.301+0000] {logging_mixin.py:137} INFO -          AMZN       GOOGL        META        MSFT        AAPL
+0  129.521368  118.497828  284.651735  333.290365  187.426136
+[2023-06-28T12:57:18.301+0000] {python.py:177} INFO - Done. Returned value was: {'AMZN': {'0': 129.5213681684}, 'GOOGL': {'0': 118.4978279165}, 'META': {'0': 284.6517351481}, 'MSFT': {'0': 333.2903650367}, 'AAPL': {'0': 187.426136261}}
+[2023-06-28T12:57:18.306+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2301, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 211, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'predict_rates' with ID '__***_temporary_run_2023-06-28T12:57:04.760968+00:00__'
+[2023-06-28T12:57:18.312+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=predict_rates, task_id=predict_rates, execution_date=20230628T000000, start_date=20230628T125705, end_date=20230628T125718
+[2023-06-28T12:57:18.321+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 104 for task predict_rates ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(predict_rates, predict_rates, __airflow_temporary_run_2023-06-28T12:57:04.760968+00:00__, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'predict_rates', 'dag_id': 'predict_rates', 'run_id': '__airflow_temporary_run_2023-06-28T12:57:04.760968+00:00__', 'map_index': -1, 'start_date': datetime.datetime(2023, 6, 28, 12, 57, 5, 964803, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2023, 6, 28, 12, 57, 18, 311869, tzinfo=Timezone('UTC')), 'duration': 12}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 2515)
+[2023-06-28T12:57:18.346+0000] {local_task_job.py:159} INFO - Task exited with return code 1

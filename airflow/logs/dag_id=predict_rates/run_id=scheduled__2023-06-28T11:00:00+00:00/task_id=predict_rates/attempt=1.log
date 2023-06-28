@@ -1,0 +1,86 @@
+[2023-06-28T12:27:45.903+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates scheduled__2023-06-28T11:00:00+00:00 [queued]>
+[2023-06-28T12:27:45.910+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates scheduled__2023-06-28T11:00:00+00:00 [queued]>
+[2023-06-28T12:27:45.910+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:27:45.910+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T12:27:45.910+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:27:45.923+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): predict_rates> on 2023-06-28 11:00:00+00:00
+[2023-06-28T12:27:45.929+0000] {standard_task_runner.py:55} INFO - Started process 250 to run task
+[2023-06-28T12:27:45.934+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'predict_rates', 'predict_rates', 'scheduled__2023-06-28T11:00:00+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/predict_rates.py', '--cfg-path', '/tmp/tmpivyhikbj']
+[2023-06-28T12:27:45.936+0000] {standard_task_runner.py:83} INFO - Job 92: Subtask predict_rates
+[2023-06-28T12:27:45.997+0000] {task_command.py:389} INFO - Running <TaskInstance: predict_rates.predict_rates scheduled__2023-06-28T11:00:00+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T12:27:46.060+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=predict_rates
+AIRFLOW_CTX_TASK_ID=predict_rates
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T11:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-06-28T11:00:00+00:00
+[2023-06-28T12:27:50.807+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         10  2023      6   28    11       0       0
+[2023-06-28T12:27:50.843+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:27:50.845+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:27:50.850+0000] {logging_mixin.py:137} INFO - [129.52136817]
+[2023-06-28T12:27:52.984+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        983  2023      6   28    11       0       0
+[2023-06-28T12:27:53.018+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:27:53.018+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:27:53.021+0000] {logging_mixin.py:137} INFO - [118.49782792]
+[2023-06-28T12:27:55.132+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0       1044  2023      6   28    11       0       0
+[2023-06-28T12:27:55.178+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:27:55.179+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:27:55.184+0000] {logging_mixin.py:137} INFO - [284.65173515]
+[2023-06-28T12:27:57.228+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        248  2023      6   28    11       0       0
+[2023-06-28T12:27:57.264+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:27:57.264+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:27:57.268+0000] {logging_mixin.py:137} INFO - [333.29036504]
+[2023-06-28T12:27:59.336+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         52  2023      6   28    11       0       0
+[2023-06-28T12:27:59.376+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:27:59.376+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:27:59.380+0000] {logging_mixin.py:137} INFO - [187.42613626]
+[2023-06-28T12:27:59.381+0000] {python.py:177} INFO - Done. Returned value was:          AMZN       GOOGL        META        MSFT        AAPL
+0  129.521368  118.497828  284.651735  333.290365  187.426136
+[2023-06-28T12:27:59.391+0000] {xcom.py:635} ERROR - Object of type DataFrame is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your *** config or make sure to decorate your object with attr.
+[2023-06-28T12:27:59.392+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2301, in xcom_push
+    session=session,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 240, in set
+    map_index=map_index,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/xcom.py", line 627, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 176, in encode
+    return super().encode(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/json.py", line 170, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DataFrame is not JSON serializable
+[2023-06-28T12:27:59.400+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=predict_rates, task_id=predict_rates, execution_date=20230628T110000, start_date=20230628T122745, end_date=20230628T122759
+[2023-06-28T12:27:59.412+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 92 for task predict_rates (Object of type DataFrame is not JSON serializable; 250)
+[2023-06-28T12:27:59.447+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-06-28T12:27:59.468+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

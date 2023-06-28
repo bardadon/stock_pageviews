@@ -1,0 +1,58 @@
+[2023-06-28T12:45:33.510+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates manual__2023-06-28T12:45:31.325736+00:00 [queued]>
+[2023-06-28T12:45:33.519+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: predict_rates.predict_rates manual__2023-06-28T12:45:31.325736+00:00 [queued]>
+[2023-06-28T12:45:33.519+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:45:33.519+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2023-06-28T12:45:33.519+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-06-28T12:45:33.531+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): predict_rates> on 2023-06-28 12:45:31.325736+00:00
+[2023-06-28T12:45:33.537+0000] {standard_task_runner.py:55} INFO - Started process 1366 to run task
+[2023-06-28T12:45:33.541+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'predict_rates', 'predict_rates', 'manual__2023-06-28T12:45:31.325736+00:00', '--job-id', '98', '--raw', '--subdir', 'DAGS_FOLDER/predict_rates.py', '--cfg-path', '/tmp/tmp47vutqke']
+[2023-06-28T12:45:33.542+0000] {standard_task_runner.py:83} INFO - Job 98: Subtask predict_rates
+[2023-06-28T12:45:33.595+0000] {task_command.py:389} INFO - Running <TaskInstance: predict_rates.predict_rates manual__2023-06-28T12:45:31.325736+00:00 [running]> on host 3e2e38946fac
+[2023-06-28T12:45:33.661+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=predict_rates
+AIRFLOW_CTX_TASK_ID=predict_rates
+AIRFLOW_CTX_EXECUTION_DATE=2023-06-28T12:45:31.325736+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-06-28T12:45:31.325736+00:00
+[2023-06-28T12:45:38.093+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         10  2023      6   28    11       0       0
+[2023-06-28T12:45:38.127+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:45:38.127+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:45:38.131+0000] {logging_mixin.py:137} INFO - [129.52136817]
+[2023-06-28T12:45:40.203+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        983  2023      6   28    11       0       0
+[2023-06-28T12:45:40.252+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:45:40.252+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:45:40.257+0000] {logging_mixin.py:137} INFO - [118.49782792]
+[2023-06-28T12:45:42.331+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0       1044  2023      6   28    11       0       0
+[2023-06-28T12:45:42.377+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:45:42.377+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:45:42.381+0000] {logging_mixin.py:137} INFO - [284.65173515]
+[2023-06-28T12:45:44.426+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0        248  2023      6   28    11       0       0
+[2023-06-28T12:45:44.464+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:45:44.465+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:45:44.469+0000] {logging_mixin.py:137} INFO - [333.29036504]
+[2023-06-28T12:45:46.496+0000] {logging_mixin.py:137} INFO -    pageviews  year  month  day  hour  minute  second
+0         52  2023      6   28    11       0       0
+[2023-06-28T12:45:46.528+0000] {logging_mixin.py:137} INFO - Model R^2 Score is: 0.0
+[2023-06-28T12:45:46.529+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/base.py:444: UserWarning: X has feature names, but RandomForestRegressor was fitted without feature names
+  f"X has feature names, but {self.__class__.__name__} was fitted without"
+
+[2023-06-28T12:45:46.532+0000] {logging_mixin.py:137} INFO - [187.42613626]
+[2023-06-28T12:45:46.533+0000] {python.py:177} INFO - Done. Returned value was: {'AMZN': {'0': 129.5213681684}, 'GOOGL': {'0': 118.4978279165}, 'META': {'0': 284.6517351481}, 'MSFT': {'0': 333.2903650367}, 'AAPL': {'0': 187.426136261}}
+[2023-06-28T12:45:46.551+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=predict_rates, task_id=predict_rates, execution_date=20230628T124531, start_date=20230628T124533, end_date=20230628T124546
+[2023-06-28T12:45:46.572+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-06-28T12:45:46.589+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check
