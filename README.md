@@ -1,9 +1,9 @@
 # stock_pageviews
 
-Project: 
+### Project: 
 Creating a data product for predicting the price fluctuation of major companies in the stock market by analyzing Wikipedia page views.
 
-Tools:
+### Tools:
 The data product will be implemented using the following tools:
 - Apache Airflow for data pipeline management.
 - Python for data ingestion and processing.
@@ -11,7 +11,7 @@ The data product will be implemented using the following tools:
 - DBT for data processing.
 - Docker for containerization.
 
-Project Results:
+### Project Results:
 1. Clean and processed pageviews and rates data in Google BigQuery:
 ![1 6AkfdWYgllY0WkgXJ5kMww](https://github.com/bardadon/stock_pageviews/assets/65648983/ef0027b8-c54f-44d0-9675-bc523d69358c)
 
